@@ -1,0 +1,27 @@
+.artist-card {
+    background-color: rgb(219, 233, 227);
+    border: 1px solid #943e3e;
+    border-radius: 8px;
+    padding: 12px;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.artist-list {
+    background-color: beige;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 40px;
+}
+
+h2 {
+    background-color: burlywood;
+    text-align: center;
+    font-style: oblique;
+    font-size: xx-large;
+    color: brown;
+}
+p {
+    font-style: italic;
+    color: #361d1d;
+}
