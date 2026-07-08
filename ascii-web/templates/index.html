@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{if not .Result}}
+    <form action="/ascii-web" method="post">
+        <textarea name="text" id="text" placeholder="Type here">{{.Text}}</textarea>
+        <select name="banner" id="banner">
+            <option value="standard">Standard</option>
+            <option value="shadow">Shadow</option>
+            <option value="thinkertoy">Thinkertoy</option>
+        </select><br><br>
+        <input type="submit" value="Generate Art">
+    </form>
+    {{end}}
+    {{if .Result}}
+    <h3>Your Ascii-Art</h3>
+    <pre>{{.Result}}</pre>
+    <p>Lines: {{.Linecount}} | Characters: {{.Charcount}}</p>
+    <label for="switch banner">Click to switch banners:
+    <a href="/ascii-web-switch?text={{.Text}}&banner=standard" class="active">standard</a>
+    <a href="/ascii-web-switch?text={{.Text}}&banner=shadow" class="active">shadow</a>
+    <a href="/ascii-web-switch?text={{.Text}}&banner=thinkertoy" class="active">thinkertoy</a>
+    </label><br><br>
+    <button id="copyBtn" onclick="copyArt()">Copy to clipboard</button>
+    <a href="/download?text={{.Text}}&banner={{.Banner}}">Download as .txt</a><br>
+    <a href="/">Home</a>
+    {{end}}
+    <script>
+        function copyArt(){
+            var text = document.querySelector("pre").innerText;
+            navigator.clipboard.writeText(text).then(function(){
+                var btn = document.getElementById("copyBtn");
+                btn.innerText = "copied!";
+                setTimeout(function () {
+                    btn.innerText = "Copy to Clipboard";
+                }, 2000);
+            });
+        } 
+    </script>
+</body>
+</html>

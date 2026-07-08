@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Web</title>
+</head>
+<body>
+    <form action="/ascii-art" method="POST">
+        <textarea name="text" placeholder="Enter text" required minlength="1" maxlength="500"></textarea>
+        <br>
+        <label><input type="radio" name="banner" value="standard" checked>Standard</label>
+        <label><input type="radio" name="banner" value="shadow">Shadow</label>
+        <label><input type="radio" name="banner" value="thinkertoy">Thinkertoy</label>
+        <br>
+        <button type="submit">Generate</button>
+    </form>
+    <p>{{.Message}}</p>
+    <pre>{{.Result}}</pre>
+</body>
+</html>

@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: content-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c2133;
+  color: hsl(62, 92%, 85%);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+    box-sizing: border-box;
+    width: 80%;
+    display: flex;
+    backdrop-filter: blur(12px);
+    gap: 16px;
+    max-width: 700px;
+    margin: 4px auto;
+    padding: 24px;
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: #38bdf8;
+}
+
+textarea {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aquamarine;
+    border-width: 2px;
+    border: wheat;
+    padding: 15px;
+    border-radius: 8px;
+    width: 600px;
+
+}
+
+select {
+    width: 600px;
+    background: #1787b8;
+    color: rgb(245, 237, 201);
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+label {
+    font-weight: 600;
+}
+
+input {
+    background: #1787b8 ;
+    color: white;
+    border: none;
+    width: 600px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+input:hover {
+    background: #38bdf8;
+    transform: translateY(-2px);
+}
+
