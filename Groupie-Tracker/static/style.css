@@ -21,7 +21,16 @@ h2 {
     font-size: xx-large;
     color: brown;
 }
+
+.errors {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
 p {
     font-style: italic;
     color: #361d1d;
 }
+

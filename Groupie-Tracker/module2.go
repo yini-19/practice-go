@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"html/template"
 	"io"
 	"net/http"
 )
@@ -99,7 +100,7 @@ func fetchRelations(url string) (RelationsIndex, error) {
 
 /*
 ---------------------------------
-Helper
+Helpers
 ---------------------------------
 */
 func fetchJSON(url string) ([]byte, error) {
@@ -120,4 +121,18 @@ func fetchJSON(url string) ([]byte, error) {
 	return body, nil
 }
 
-//
+func renderError(w http.ResponseWriter, message string, status int) {
+	tmpl, err := template.ParseFiles("templates/error.html")
+	if err != nil {
+		http.Error(w, message, status)
+		return
+	}
+	
+	w.WriteHeader(status)
+	Data := struct {
+		Code    int
+		Message string
+	}{Code: status, Message: message}
+	
+	tmpl.Execute(w, Data)
+}
