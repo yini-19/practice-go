@@ -120,4 +120,4 @@ func fetchJSON(url string) ([]byte, error) {
 	return body, nil
 }
 
-// 
+//
