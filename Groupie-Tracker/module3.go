@@ -27,7 +27,7 @@ func artistHandler(w http.ResponseWriter, r *http.Request) {
 		renderError(w, "failed to fetch artists", 500)
 		return
 	}
-
+	
 	if err := tmpl.Execute(w, artist); err != nil {
 		renderError(w, "parsing failed", 500)
 		return

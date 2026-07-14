@@ -16,7 +16,7 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 	
-	if err := http.ListenAndServe(":8080", mux); err != nil {
+	if err := http.ListenAndServe(":8080", recoverMiddleware(mux)); err != nil {
 		log.Fatal(err)
 	}
 }
