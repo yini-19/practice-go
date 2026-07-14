@@ -27,7 +27,7 @@ func artistHandler(w http.ResponseWriter, r *http.Request) {
 		renderError(w, "failed to fetch artists", 500)
 		return
 	}
-	
+
 	if err := tmpl.Execute(w, artist); err != nil {
 		renderError(w, "parsing failed", 500)
 		return
@@ -40,6 +40,7 @@ func artistDetailHandler(w http.ResponseWriter, r *http.Request) {
 		renderError(w, "template parsing failed", 500)
 		return
 	}
+
 	path := r.URL.Path
 	idstr := strings.TrimPrefix(path, "/artists/")
 
@@ -53,6 +54,15 @@ func artistDetailHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		renderError(w, "failed to fetch artists", 500)
 		return
+	}
+
+	relation, err := fetchRelations("https://groupietrackers.herokuapp.com/api/relations")
+	if err != nil {
+		renderError(w, "failed to fetch relations", 500)
+		return
+	}
+	if id == Relation.{
+
 	}
 
 	found := false
